@@ -3,4 +3,6 @@
 
     include 'includes/autoload.inc.php';
     $dbh = new Dbh();
-    $dz = new DataZone();
+    $pcv = new PostCodeView();
+
+    echo json_encode($pcv->showSimdByPostCode($input));
