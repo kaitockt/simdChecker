@@ -1,0 +1,19 @@
+#result {
+    display: none;
+}
+
+#result-body{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.simd {
+    width: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+    .simd {
+    width: 25%;
+    }
+}
+

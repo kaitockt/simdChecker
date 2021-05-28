@@ -7,14 +7,17 @@ class PostCodeView extends PostCode {
             //get the first row only
             $row = $rows[0];
             return array(
-                "rank" => $row["simdrank"],
-                "income" => $row["income"],
-                "employment" => $row["employment"],
-                "education" => $row["education"],
-                "health" => $row["health"],
-                "access" => $row["access"],
-                "crime" => $row["crime"],
-                "housing" => $row["housing"]
+                "Post Code" => $pc,
+                "ranks" =>[
+                    "Total Rank" => $row["simdrank"],
+                    "Income" => $row["income"],
+                    "Employment" => $row["employment"],
+                    "Education" => $row["education"],
+                    "Health" => $row["health"],
+                    "Geographic Access" => $row["access"],
+                    "Crime" => $row["crime"],
+                    "Housing" => $row["housing"]
+                ]
             );
         }
     }
