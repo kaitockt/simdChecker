@@ -4,7 +4,7 @@ $input = $_GET['addr'];
 $input = str_replace(" ", "+", $input);
 
 //get api key
-$key = readfile("apikey.txt");
+$key = file_get_contents("apikey.txt", true);
 
 $curl = curl_init();
 
