@@ -3,8 +3,8 @@
 $input = $_GET['addr'];
 $input = str_replace(" ", "+", $input);
 
-//please don't steal my key :(
-$key = "AIzaSyAW1tWGyv2Oufto9amzILG5lCBAWSO7x3o";
+//replace this string with your own key
+$key = "*your key*";
 
 $curl = curl_init();
 
