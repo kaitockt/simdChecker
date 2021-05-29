@@ -3,8 +3,8 @@
 $input = $_GET['addr'];
 $input = str_replace(" ", "+", $input);
 
-//please don't steal my key :(
-$key = "AIzaSyAW1tWGyv2Oufto9amzILG5lCBAWSO7x3o";
+//get api key
+$key = readfile("apikey.txt");
 
 $curl = curl_init();
 
