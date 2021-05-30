@@ -1,52 +1,29 @@
 <?php
-// $input = "Leven Street, Meadows";
-$input = $_GET['addr'];
+include_once "includes/autoload.inc.php";
+$geocode = new Geocode();
+$curl = new Curl();
+
+$input = "Leven Street, Meadows";
+// $input = $_GET['addr'];
 $input = str_replace(" ", "+", $input);
 
 //get api key
 $key = file_get_contents("apikey.txt", true);
 
-$curl = curl_init();
+if($geocode->curl($input, $key)){
+    $lat = $geocode->getLat();
+    $lng = $geocode->getLng();
+} else {
+    //TODO: error handler
+    echo "Error";
+}
 
-curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://maps.googleapis.com/maps/api/geocode/json?address=$input&key=$key",
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_TIMEOUT => 30,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "GET",
-    CURLOPT_HTTPHEADER => array(
-        "cache-control: no-cache"
-    ),
-));
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
-
-curl_close($curl);
-
-$response = json_decode($response, true);
-$lat = $response["results"][0]["geometry"]["location"]["lat"];
-$lng = $response["results"][0]["geometry"]["location"]["lng"];
-
-$curl2 = curl_init();
-curl_setopt_array($curl2, array(
-    CURLOPT_URL => "api.postcodes.io/postcodes?lon=$lng&lat=$lat",
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_TIMEOUT => 30,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "GET",
-    CURLOPT_HTTPHEADER => array(
-        "cache-control: no-cache"
-    ),
-));
-
-$response = curl_exec($curl2);
-$err = curl_error($curl2);
-
-curl_close($curl2);
-$response = json_decode($response, true);
-// echo $response["result"][0]["postcode"];
+//get post code from postcode.io
+$response = $curl->run("api.postcodes.io/postcodes?lon=$lng&lat=$lat");
 
 $_GET['pc'] = $response["result"][0]["postcode"];
+$_GET['lat'] = $lat;
+$_GET['lng'] = $lng;
 
 include "getsimd.php";

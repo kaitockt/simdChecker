@@ -44,6 +44,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     // console.log(`${k}: ${simds[k]}`)
                     document.getElementById('result-body').appendChild(createSIMDBox(k, simds[k]));
                 }
+
+                //show Cloest POIs
+                let pois = response["poi"];
+                console.log(pois);
+                for(const poi in pois){
+                    let p = document.createElement('p');
+                    p.innerHTML = poi + ": " + pois[poi];
+                    document.getElementById('result-body').appendChild(p);
+                }
             }
         };
         xhttp.open("GET", "getsimd.php?pc="+postCode, true);
@@ -54,21 +63,34 @@ document.addEventListener('DOMContentLoaded', function(event) {
         // console.log("getpostcode.php?addr="+addr+"+scotland");
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
-            console.log('readyState', this.readyState)
-            console.log('status', this.status)
+            // console.log('readyState', this.readyState)
+            // console.log('status', this.status)
 
             if(this.readyState == 4 && this.status == 200){
+                // console.log(this.responseText)
                 let response = JSON.parse(this.responseText);
                 //show result card
                 document.getElementById("result").style.display = "block";
                 //show address and post code on result card header
-                document.getElementById("result-pc").innerHTML=addr + " " + response["Post Code"];
+                document.getElementById("result-pc").innerHTML=addr + " - " + response["Post Code"];
 
                 //show simd
                 let simds = response["ranks"];
+                let divSimd = document.createElement("div");
+                divSimd.id = "simd";
+                document.getElementById("result-body").appendChild(divSimd);
                 for(const k in simds){
                     // console.log(`${k}: ${simds[k]}`)
-                    document.getElementById('result-body').appendChild(createSIMDBox(k, simds[k]));
+                    document.getElementById('simd').appendChild(createSIMDBox(k, simds[k]));
+                }
+
+                //show Cloest POIs
+                let pois = response["poi"];
+                console.log(pois);
+                for(const poi in pois){
+                    let p = document.createElement('p');
+                    p.innerHTML = "Nearest " + poi + ": " + pois[poi];
+                    document.getElementById('result-body').appendChild(p);
                 }
             } else {
                 console.log(this.status)
