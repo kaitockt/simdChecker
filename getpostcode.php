@@ -3,8 +3,8 @@ include_once "includes/autoload.inc.php";
 $geocode = new Geocode();
 $curl = new Curl();
 
-$input = "Leven Street, Meadows";
-// $input = $_GET['addr'];
+// $input = "Leven Street, Meadows";
+$input = $_GET['addr'];
 $input = str_replace(" ", "+", $input);
 
 //get api key
