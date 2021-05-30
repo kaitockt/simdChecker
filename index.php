@@ -11,7 +11,7 @@
     <!-- My Own JS -->
     <script src="<?=getLastestVersion("myscript.js")?>"></script>
     <!-- My Own CSS -->
-    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="<?=getLastestVersion("mystyle.css")?>">
 </head>
 <body>
     <div class="container">
@@ -47,7 +47,6 @@
                 <h2 id="result-pc">Result</h2>
             </div>
             <div class="card-body" id="result-body">
-
             </div>
         </div>   
     </div>
