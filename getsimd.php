@@ -1,6 +1,6 @@
 <?php
-    $input = "EH16 5PS";
-    // $input = $_GET['pc'];
+    // $input = "EH16 5PS";
+    $input = $_GET['pc'];
 
     include_once 'includes/autoload.inc.php';
     $dbh = new Dbh();

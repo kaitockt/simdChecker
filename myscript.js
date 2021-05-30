@@ -40,9 +40,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
                 //show simd
                 let simds = JSON.parse(this.responseText)["ranks"];
+                let divSimd = document.createElement("div");
+                divSimd.id = "simd";
+                document.getElementById("result-body").appendChild(divSimd);
                 for(const k in simds){
                     // console.log(`${k}: ${simds[k]}`)
-                    document.getElementById('result-body').appendChild(createSIMDBox(k, simds[k]));
+                    document.getElementById('simd').appendChild(createSIMDBox(k, simds[k]));
                 }
 
                 //show Cloest POIs
