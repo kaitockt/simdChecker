@@ -7,10 +7,11 @@
 
 //get api key
 $key = file_get_contents("apikey.txt", true);
+include_once 'includes/autoload.inc.php';
 $fp = new FindPlace();
 $dm = new DistanceMatrix();
 
 $fp->curl($_GET['origin'], $_GET['type']);
 $destination = $fp->getLat().",".$fp->getLng();
 $dm->curl($_GET['origin'], $destination);
-return $dm->getDuration();
+echo json_encode($dm->getDuration());
