@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SIMD Checker Result</title>
         <!-- Bootstrap4 -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -24,15 +24,12 @@
 </head>
 <body>
 
-
-    <!-- see rayca project how to import to another html -->
-
-
-
     <div id="result_div">
 
         <h1 id="result_postcode"></h1>
         <hr>
+
+        <!-- ranks of all categories -->
 
         <div class="ui grid">
             <div class="four wide column" id="Total Rank"></div>
@@ -44,22 +41,34 @@
             <div class="four wide column" id="Income"></div>
             <div class="four wide column" id="Employment"></div>
         </div>
+        <br><br>
 
+        <!-- more info, default hidden -->
+
+        <button class="fluid ui button" type="button" onclick="displayMoreInfo()" id="moreInfoBtn">See more info</button>
+        <div id="moreInfo">
+            More info
+        </div>
         <br><br>
         
-        <p>Search another one:</p>
-        <form action="result.html" method="get" id="postcodeform">
-            <div class="ui icon input">
-                <input type="text" placeholder="Postcode" id="postcodeField" name="postCode">
-                <i class="inverted circular search link icon" onclick="document.getElementById('postcodeform').submit()"></i>
-            </div>
-        </form>
-        <form  action="result.html" method="get" id="addressform">
-            <div class="ui icon input">
-                <input type="text" placeholder="Address" id="addressField" name="addr">
-                <i class="inverted circular search link icon" onclick="document.getElementById('addressform').submit()"></i>
-            </div>
-        </form>
+        <!-- start another search -->
+        
+        <div class="row">
+            <form action="result.html" method="get" id="postcodeform">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Postcode" id="postcodeField" name="postCode">
+                    <i class="inverted circular search link icon" onclick="document.getElementById('postcodeform').submit()"></i>
+                </div>
+            </form>
+            <form  action="result.html" method="get" id="addressform">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Address" id="addressField" name="addr">
+                    <i class="inverted circular search link icon" onclick="document.getElementById('addressform').submit()"></i>
+                </div>
+            </form>
+        </div>
+        
+        
     </div>
 
 

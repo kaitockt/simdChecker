@@ -1,3 +1,35 @@
 #result_div {
     padding: 40px;
 }
+
+form {
+    width: 50%;
+}
+
+.input {
+    width: 100%;
+}
+
+#moreInfo {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+
+    #result_postcode {
+        font-size: 20px !important;
+    }
+
+    form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+
+    .column {
+        overflow: scroll;
+    }
+
+}

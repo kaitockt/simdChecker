@@ -1,23 +1,69 @@
-window.addEventListener("load", function(){
-    let href = window.location.href;
-    if(href.includes("postCode")){
+window.addEventListener("load", function() {
+    let href = window.location.href
+
+
+    // === search by postcode ===
+
+    if(href.includes("postCode")) {
 
         // === get and display data from url ===
 
-        let postcode = href.substring(href.indexOf("postCode")+9, href.length);
+        let postcode = href.substring(href.indexOf("postCode")+9, href.length)
+        if(postcode.includes("+")) {
+            var stdPostcode = postcode.replaceAll("+", " ")
+        }
         
         let result_postcode = document.getElementById('result_postcode')
-        result_postcode.innerHTML = postcode
+        result_postcode.innerHTML = stdPostcode
 
-        // === get data via JSON ===
+        // === get data from database ===
 
-        var obj = JSON.parse('{"Post Code":"EH7 6FD","ranks":{"Total Rank":"6305","Income":"5990.0","Employment":"5627.0","Education":"5862.0","Health":"6387.0","Geographic Access":"4195.0","Crime":"4798.0","Housing":"1836.0"}}')
-        let ranks = obj["ranks"]
+        this.fetch(`getsimd.php?pc=${postcode}`)
+        .then(response => response.json())
+        .then(data => {
+            let ranks = data["ranks"]
+
+            // counting and output
+            countAndOutput(ranks)
+        })
+
+    }
 
 
-        // === counting  and output ===
+    // === search by address ===
 
-        let datazone = 6976 // datazone in 2020
+    if(href.includes("addr")) {
+
+        // === get data from url ===
+
+        let address = href.substring(href.indexOf("addr")+5, href.length)
+
+        // === get data from database ===
+
+        this.fetch(`getpostcode.php?addr=${address}`)
+        .then(response => response.json())
+        .then(data => {
+            let ranks = data["ranks"]
+
+            // display address and postcode data
+            if(address.includes("+")) {
+                var stdAddr = address.replaceAll("+", " ")
+            }
+            let result_postcode = document.getElementById('result_postcode')
+            result_postcode.innerHTML = stdAddr+" -- "+data["Post Code"]
+
+            // counting and output
+            countAndOutput(ranks)
+
+        })
+        
+    }
+})
+
+
+function countAndOutput(ranks) {
+
+    let datazone = 6976 // datazone in 2020
 
         // color of each grade
         divColor = {
@@ -60,7 +106,9 @@ window.addEventListener("load", function(){
             }
             
         }
+}
 
-
-    }
-})
+function displayMoreInfo() {
+    document.getElementById('moreInfo').style.display = "block"
+    document.getElementById('moreInfoBtn').style.display = "none"
+}
