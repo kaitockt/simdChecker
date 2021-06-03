@@ -28,28 +28,28 @@
 
     //list cloest point of interests
     // $pois = ["Bus Stop", "Lidl", "Sainsbury", "Aldi", "Costco", "Iceland", "Bar", "School", "Hotel"];
-    $pois =[
-        "Bus Stop",
-        // "Lidl",
-        // "Tesco",
-        // "Sainsbury",
-        // "Bar",
-        // "School",
-        // "Hotel"
-    ];
+    // $pois =[
+    //     "Bus Stop",
+    //     "Lidl",
+    //     "Tesco",
+    //     "Sainsbury",
+    //     "Bar",
+    //     "School",
+    //     "Hotel"
+    // ];
     $origin = $lat.",".$lng;
     // $toBus = distanceToClosest($origin, 'bus stop');
     // $res["poi"]["Bus Stop"] = $toBus;
-    foreach($pois as $poi){
-        $res["poi"][$poi] = distanceToClosest($origin, $poi);
-    }
-
+    // foreach($pois as $poi){
+    //     $res["poi"][$poi] = distanceToClosest($origin, $poi);
+    // }
+    $res['origin'] = $origin;
     echo json_encode($res);
 
-    function distanceToClosest($origin, $type){
-        global $fp, $dm;
-        $fp->curl($origin, $type);
-        $destination = $fp->getLat().",".$fp->getLng();
-        $dm->curl($origin, $destination);
-        return $dm->getDuration();
-    }
+    // function distanceToClosest($origin, $type){
+    //     global $fp, $dm;
+    //     $fp->curl($origin, $type);
+    //     $destination = $fp->getLat().",".$fp->getLng();
+    //     $dm->curl($origin, $destination);
+    //     return $dm->getDuration();
+    // }
