@@ -30,12 +30,12 @@
     // $pois = ["Bus Stop", "Lidl", "Sainsbury", "Aldi", "Costco", "Iceland", "Bar", "School", "Hotel"];
     $pois =[
         "Bus Stop",
-        "Lidl",
-        "Tesco",
-        "Sainsbury",
-        "Bar",
-        "School",
-        "Hotel"
+        // "Lidl",
+        // "Tesco",
+        // "Sainsbury",
+        // "Bar",
+        // "School",
+        // "Hotel"
     ];
     $origin = $lat.",".$lng;
     // $toBus = distanceToClosest($origin, 'bus stop');
