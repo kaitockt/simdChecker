@@ -30,6 +30,11 @@ Front End by @adalaw
 
 Back End by @kaitockt
 
+APIs:
+* [Google Maps Platform](https://developers.google.com/maps)
+* [Postcode.io](https://postcodes.io)
+
+
 Data Source: [Government of Scotland - Scottish Index of Multiple Deprivation 2020](https://www.gov.scot/collections/scottish-index-of-multiple-deprivation-2020/)
 
 Under the [Open Governmnet Licence](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
