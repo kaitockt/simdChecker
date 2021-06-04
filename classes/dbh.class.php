@@ -3,7 +3,7 @@
 class Dbh {
     private $host = "localhost";
     private $user = "root";
-    private $pwd = "abcd1234";
+    private $pwd = "";
     private $dbName = "simd";
 
     public function connect(){

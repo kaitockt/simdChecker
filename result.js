@@ -12,6 +12,9 @@ window.addEventListener("load", function() {
         if(postcode.includes("+")) {
             var stdPostcode = postcode.replaceAll("+", " ")
         }
+        if(postcode.includes("%2C")) {
+            var stdPostcode = postcode.replaceAll("%2C", " ")
+        }
         
         let result_postcode = document.getElementById('result_postcode')
         result_postcode.innerHTML = stdPostcode
@@ -25,6 +28,7 @@ window.addEventListener("load", function() {
 
             // counting and output
             countAndOutput(ranks)
+            origin = data['origin']
         })
 
     }
@@ -49,12 +53,15 @@ window.addEventListener("load", function() {
             if(address.includes("+")) {
                 var stdAddr = address.replaceAll("+", " ")
             }
+            if(postcode.includes("%2C")) {
+                var stdAddr = postcode.replaceAll("%2C", " ")
+            }
             let result_postcode = document.getElementById('result_postcode')
             result_postcode.innerHTML = stdAddr+" -- "+data["Post Code"]
 
             // counting and output
             countAndOutput(ranks)
-
+            origin = data['origin']
         })
         
     }
@@ -86,7 +93,6 @@ function countAndOutput(ranks) {
 
             // find their grade by rounding up their decile
             let grade = Math.ceil(decile)
-            console.log(rank+" -- "+decile+" -- "+grade)
             
             // === html display ===
 
@@ -111,4 +117,34 @@ function countAndOutput(ranks) {
 function displayMoreInfo() {
     document.getElementById('moreInfo').style.display = "block"
     document.getElementById('moreInfoBtn').style.display = "none"
+    // content
+    searchDetails()
+}
+
+function searchDetails() {
+    let target = ["Bus Stop", "Lidl", "Sainsbury", "Aldi", "Tesco", "Iceland", "Bar", "School", "Hotel"]
+    target.forEach(element => {
+        fetch(`getnearestpoi.php?origin=${origin}&type=${element}`)
+        .then(response => response.json())
+        .then(data => {
+
+            // === html display ===
+
+            // create table's element
+            let moreInfoResult = document.getElementById('moreInfoResult')
+            let newtr = document.createElement("tr")
+            let eletd = document.createElement("td")
+            let datatd = document.createElement("td")
+
+            // content
+            eletd.innerHTML = `<p>${element}</P>`
+            datatd.innerHTML = `<p>${data}</p>`
+            
+            // append to the table
+            newtr.appendChild(eletd)
+            newtr.appendChild(datatd)
+            moreInfoResult.appendChild(newtr)
+            
+        })
+    });
 }
