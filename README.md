@@ -26,9 +26,9 @@ To make it work for you, you will need:
 * Improve Error Handling
 
 ## Credits
-Front End by @adalaw
+Front End by [@adalaw](https://github.com/adalaw)
 
-Back End by @kaitockt
+Back End by [@kaitockt](https://github.com/kaitockt)
 
 APIs:
 * [Google Maps Platform](https://developers.google.com/maps)
