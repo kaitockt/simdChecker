@@ -10,7 +10,7 @@ window.addEventListener("load", function() {
 
         let postcode = href.substring(href.indexOf("postCode")+9, href.length)
         var stdPostcode = postcode.replaceAll("+", " ")
-        var stdPostcode = postcode.replaceAll("%2C", " ")
+        stdPostcode = stdPostcode.replaceAll("%2C", ",")
         
         let result_postcode = document.getElementById('result_postcode')
         result_postcode.innerHTML = stdPostcode
@@ -47,7 +47,7 @@ window.addEventListener("load", function() {
 
             // display address and postcode data
             var stdAddr = address.replaceAll("+", " ")
-            var stdAddr = address.replaceAll("%2C", " ")
+            stdAddr = stdAddr.replaceAll("%2C", ",")
             let result_postcode = document.getElementById('result_postcode')
             result_postcode.innerHTML = stdAddr+" -- "+data["Post Code"]
 
