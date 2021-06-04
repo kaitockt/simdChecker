@@ -9,12 +9,8 @@ window.addEventListener("load", function() {
         // === get and display data from url ===
 
         let postcode = href.substring(href.indexOf("postCode")+9, href.length)
-        if(postcode.includes("+")) {
-            var stdPostcode = postcode.replaceAll("+", " ")
-        }
-        if(postcode.includes("%2C")) {
-            var stdPostcode = postcode.replaceAll("%2C", " ")
-        }
+        var stdPostcode = postcode.replaceAll("+", " ")
+        stdPostcode = stdPostcode.replaceAll("%2C", ",")
         
         let result_postcode = document.getElementById('result_postcode')
         result_postcode.innerHTML = stdPostcode
@@ -50,12 +46,8 @@ window.addEventListener("load", function() {
             let ranks = data["ranks"]
 
             // display address and postcode data
-            if(address.includes("+")) {
-                var stdAddr = address.replaceAll("+", " ")
-            }
-            if(postcode.includes("%2C")) {
-                var stdAddr = postcode.replaceAll("%2C", " ")
-            }
+            var stdAddr = address.replaceAll("+", " ")
+            stdAddr = stdAddr.replaceAll("%2C", ",")
             let result_postcode = document.getElementById('result_postcode')
             result_postcode.innerHTML = stdAddr+" -- "+data["Post Code"]
 
