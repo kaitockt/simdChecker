@@ -26,48 +26,80 @@
 
     <div id="result_div">
 
-        <h1 id="result_postcode"></h1>
-        <hr>
+        <div class="gradient">
+            <h1 id="result_postcode"></h1>
+            <hr>
 
-        <!-- ranks of all categories -->
+            <!-- ranks of all categories -->
 
-        <div class="ui grid">
-            <div class="four wide column" id="Total Rank"></div>
-            <div class="four wide column" id="Geographic Access"></div>
-            <div class="four wide column" id="Crime"></div>
-            <div class="four wide column" id="Housing"></div>
-            <div class="four wide column" id="Health"></div>
-            <div class="four wide column" id="Education"></div>
-            <div class="four wide column" id="Income"></div>
-            <div class="four wide column" id="Employment"></div>
-        </div>
-        <br><br>
+            <div class="ui grid" style="margin: 0;">
+                <div class="four wide column" id="Total Rank"></div>
+                <div class="four wide column" id="Geographic Access"></div>
+                <div class="four wide column" id="Crime"></div>
+                <div class="four wide column" id="Housing"></div>
+                <div class="four wide column" id="Health"></div>
+                <div class="four wide column" id="Education"></div>
+                <div class="four wide column" id="Income"></div>
+                <div class="four wide column" id="Employment"></div>
+            </div>
+            <br>
+            <!-- about the grade and color -->
 
-        <!-- more info, default hidden -->
+            <div id="gradeAndColor">
+                <h4>What do the colours and the grades mean?</h4>
+                <table>
+                    <tr>
+                        <td style="width: 10%; padding: 0; background: #a50026;">Most deprived 10%</td>
+                        <td style="width: 10%; padding: 0; background: #d73027;"></td>
+                        <td style="width: 10%; padding: 0; background: #f46d43;"></td>
+                        <td style="width: 10%; padding: 0; background: #fdae61;"></td>
+                        <td style="width: 10%; padding: 0; background: #fee090;"></td>
+                        <td style="width: 10%; padding: 0; background: #e0f3f8;"></td>
+                        <td style="width: 10%; padding: 0; background: #abd9e9;"></td>
+                        <td style="width: 10%; padding: 0; background: #74add1;"></td>
+                        <td style="width: 10%; padding: 0; background: #4575b4;"></td>
+                        <td style="width: 10%; padding: 0; background: #313695; text-align: right;">Least deprived 10%</td>
+                    </tr>
+                </table>
+            </div>
 
-        <button class="fluid ui button" type="button" onclick="displayMoreInfo()" id="moreInfoBtn">See more info</button>
-        <div id="moreInfo">
-            <h5>The nearest bus stop/ supermarket/ school/ hotel:</h5>
-            <table id="moreInfoResult"></table>
-        </div>
-        <br><br>
-        
-        <!-- start another search -->
-        
-        <div class="row">
-            <form action="result.html" method="get" id="postcodeform">
-                <div class="ui icon input">
-                    <input type="text" placeholder="Postcode" id="postcodeField" name="postCode">
-                    <i class="inverted circular search link icon" onclick="document.getElementById('postcodeform').submit()"></i>
+            <br><br>
+
+            <!-- more info, default hidden -->
+
+            <button class="fluid ui button" type="button" onclick="displayMoreInfo()" id="moreInfoBtn">See more info</button>
+
+                
+                <!-- nearest things -->
+
+                <div id="moreInfo">
+                    <h4>The nearest bus stop/ supermarket/ school/ hotel:</h4>
+                    <table id="moreInfoResult"></table>
                 </div>
-            </form>
-            <form  action="result.html" method="get" id="addressform">
-                <div class="ui icon input">
-                    <input type="text" placeholder="Address" id="addressField" name="addr">
-                    <i class="inverted circular search link icon" onclick="document.getElementById('addressform').submit()"></i>
-                </div>
-            </form>
+
+            
+            
+            <br><br>
+            
+            <!-- start another search -->
+            
+            <div class="row" style="margin: 0;">
+                <form action="result.html" method="get" id="postcodeform">
+                    <div class="ui icon input">
+                        <input type="text" placeholder="Postcode" id="postcodeField" name="postCode">
+                        <i class="inverted circular search link icon" onclick="document.getElementById('postcodeform').submit()"></i>
+                    </div>
+                </form>
+                <form  action="result.html" method="get" id="addressform">
+                    <div class="ui icon input">
+                        <input type="text" placeholder="Address" id="addressField" name="addr">
+                        <i class="inverted circular search link icon" onclick="document.getElementById('addressform').submit()"></i>
+                    </div>
+                </form>
+            </div>
         </div>
+
+        
         
         
     </div>

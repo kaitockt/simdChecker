@@ -1,6 +1,32 @@
+body {
+    background: rgba(213, 237, 250);
+    min-height: 100vh;
+    background-image: url('scotland.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 50% 100%;
+    background-position: center;
+    display: block;
+}
+
 #result_div {
     padding: 40px;
 }
+
+.gradient {
+    background: linear-gradient(
+    to right bottom,
+        /* rgba(250, 247, 247, 0.993),
+        rgba(255, 255, 255, 0.932) */
+        rgba(238, 236, 236, 0.877),
+        rgba(255, 255, 255, 0.74)
+    );
+    border-radius: 4px;
+    box-shadow:hsl(0, 0%, 82%) 0 0 14px;
+    padding: 40px;
+    min-height: 100vh;
+}
+
 
 form {
     width: 50%;
@@ -10,20 +36,29 @@ form {
     width: 100%;
 }
 
+#gradeAndColor table {
+    color: white;
+    width: 100%;
+}
+
+#gradeAndColor td {
+    font-size: 12px;
+}
+
 #moreInfo {
     display: none;
 }
 
-table {
-    width: 30%;
+#moreInfo table {
+    width: 40%;
 }
 
-td {
-    padding: 5px 30px 5px 0px;
+#moreInfo td {
+    padding: 5px 30px 5px 5px;
 }
 
-tr:nth-child(odd) {
-    background: rgb(235, 231, 231);
+#moreInfoResult tr:nth-child(odd) {
+    background: white;
 }
 
 @media screen and (max-width: 700px) {

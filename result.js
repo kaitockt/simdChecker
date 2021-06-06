@@ -139,4 +139,4 @@ function searchDetails() {
             
         })
     });
-}
+} 
