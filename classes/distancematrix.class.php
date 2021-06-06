@@ -1,6 +1,6 @@
 <?php
 
-class DistanceMatrix extends Curl{
+class DistanceMatrix extends CUrl{
     private $row = [];
 
     public function curl($origins, $destinations){

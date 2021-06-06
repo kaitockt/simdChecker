@@ -1,6 +1,6 @@
 <?php
 
-class FindPlace extends Curl {
+class FindPlace extends CUrl {
     private $fields = ["name", "geometry", "place_id"];
     private $res = [];
 

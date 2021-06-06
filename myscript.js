@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
     //check by post code
     document.getElementById("submit-pc").addEventListener("click", function(){
-        // let postCode = document.getElementById("postCode").value.replace(" ", "%20");
         let postCode = document.getElementById("postCode").value;
         document.getElementById('result-body').innerHTML="";
         checkByPostCode(postCode);
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
-                // console.log(this.responseText);
                 //show result card
                 document.getElementById("result").style.display = "block"
                 //show post code on result card header
@@ -44,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 divSimd.id = "simd";
                 document.getElementById("result-body").appendChild(divSimd);
                 for(const k in simds){
-                    // console.log(`${k}: ${simds[k]}`)
                     document.getElementById('simd').appendChild(createSIMDBox(k, simds[k]));
                 }
 
@@ -63,14 +60,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 
     function searchByAddr(addr){
-        // console.log("getpostcode.php?addr="+addr+"+scotland");
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
-            // console.log('readyState', this.readyState)
-            // console.log('status', this.status)
 
             if(this.readyState == 4 && this.status == 200){
-                // console.log(this.responseText)
                 let response = JSON.parse(this.responseText);
                 //show result card
                 document.getElementById("result").style.display = "block";
@@ -83,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 divSimd.id = "simd";
                 document.getElementById("result-body").appendChild(divSimd);
                 for(const k in simds){
-                    // console.log(`${k}: ${simds[k]}`)
                     document.getElementById('simd').appendChild(createSIMDBox(k, simds[k]));
                 }
 
@@ -110,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
         let card  = document.createElement("div");
         card.classList.add("card", "simd");
         if([1,2,10].includes(grade)){
-            // console.log(grade);
             card.style.color = "#FFF"
         }
         //color 

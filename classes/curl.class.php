@@ -1,6 +1,7 @@
 <?php
 
 class CUrl {
+    //retrieve response from API
     protected $key = "";
 
     public function __construct(){
@@ -20,9 +21,6 @@ class CUrl {
                 "cache-control: no-cache"
             ),
         ));
-
-        // var_dump($url);
-        // exit();
 
         $response = json_decode(curl_exec($curl), true);
         $err = curl_error($curl);

@@ -1,6 +1,6 @@
 <?php
 
-class Geocode extends Curl{
+class Geocode extends CUrl{
     private $lat = "";
     private $lng = "";
     private $res = [];
