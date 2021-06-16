@@ -27,6 +27,10 @@ body {
     min-height: 100vh;
 }
 
+#loadingdiv {
+    background: transparent !important;
+    min-height: 164px;
+}
 
 form {
     width: 50%;

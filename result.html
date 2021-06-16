@@ -30,9 +30,15 @@
             <h1 id="result_postcode"></h1>
             <hr>
 
+            <!-- loading for 1 sec -->
+            <div class="ui segment" id="loadingdiv">
+                <div class="ui active loader"></div>
+                <p></p>
+            </div>
+
             <!-- ranks of all categories -->
 
-            <div class="ui grid" style="margin: 0;">
+            <div class="ui grid" style="margin: 0;" id="rankDiv">
                 <div class="four wide column" id="Total Rank"></div>
                 <div class="four wide column" id="Geographic Access"></div>
                 <div class="four wide column" id="Crime"></div>
