@@ -119,6 +119,8 @@ function displayMoreInfo() {
 }
 
 function searchDetails() {
+    // set timeout for loading
+    setTimeout(loadingDiv2, 500)
     let target = ["Bus Stop", "Lidl", "Sainsbury", "Aldi", "Tesco", "Iceland", "Bar", "School", "Hotel"]
     target.forEach(element => {
         fetch(`getnearestpoi.php?origin=${origin}&type=${element}`)
@@ -145,3 +147,7 @@ function searchDetails() {
         })
     });
 } 
+
+function loadingDiv2() {
+    document.getElementById('loadingdiv2').remove()
+}
