@@ -1,7 +1,6 @@
 window.addEventListener("load", function() {
     let href = window.location.href
 
-
     // === search by postcode ===
 
     if(href.includes("postCode")) {
@@ -57,8 +56,14 @@ window.addEventListener("load", function() {
         })
         
     }
+
+    // set timeout for loading
+    setTimeout(loadingDiv, 300)
 })
 
+function loadingDiv() {
+    document.getElementById('loadingdiv').remove()
+}
 
 function countAndOutput(ranks) {
 
@@ -114,6 +119,8 @@ function displayMoreInfo() {
 }
 
 function searchDetails() {
+    // set timeout for loading
+    setTimeout(loadingDiv2, 500)
     let target = ["Bus Stop", "Lidl", "Sainsbury", "Aldi", "Tesco", "Iceland", "Bar", "School", "Hotel"]
     target.forEach(element => {
         fetch(`getnearestpoi.php?origin=${origin}&type=${element}`)
@@ -140,3 +147,7 @@ function searchDetails() {
         })
     });
 } 
+
+function loadingDiv2() {
+    document.getElementById('loadingdiv2').remove()
+}

@@ -11,7 +11,7 @@ To make it work for you, you will need:
   * Places API
 
 ## Installation
-1.  Clone the whole project into the htdoc folder (or public_html foler)
+1.  Clone the whole project into the htdoc folder (or public_html folder)
 1.  Create a MySQL database named as "simd" and import the simd.sql file into it.
 1.  In the project main route, create a file named as apikey.txt, copy and paste your API Key inside it.
 1.  Edit classes/dbh.php according to your MySQL settings

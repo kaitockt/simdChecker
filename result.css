@@ -27,6 +27,10 @@ body {
     min-height: 100vh;
 }
 
+#loadingdiv {
+    background: transparent !important;
+    min-height: 164px;
+}
 
 form {
     width: 50%;
@@ -34,6 +38,11 @@ form {
 
 .input {
     width: 100%;
+}
+
+#loadingdiv2 {
+    width: 40%;
+    min-height: 60px;
 }
 
 #gradeAndColor table {
